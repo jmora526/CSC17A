@@ -12,11 +12,12 @@ using namespace std;
 //Global Constants
 
 //Function Prototypes
-
+void ttlPop(int,int,float);
 //Execution Begins Here
 int main(int argc, char** argv) {
     //Declare Variables
-    float srtPop = 0, popIncr = 0, numDays = 0;
+    float popIncr;
+    int srtPop,numDays;
     //Input Data
     cout<<"Population Prediction"<<endl;
     //Don't accept a number less than 2
@@ -51,7 +52,12 @@ int main(int argc, char** argv) {
     //Process Data
     
     //Output Data
-    
+    ttlPop(srtPop,popIncr,numDays);
     return 0;
 }
-
+void ttlPop(int Pop,int Days,float Cent){
+    for(int c = 0; c <= Days; c++){
+    Pop+=((Cent / 100) * Pop);  
+    cout<<"Day:"<<c<<" Space:"<<Pop<<endl;
+    }
+}
