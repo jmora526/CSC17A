@@ -35,7 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/CPP_Temp.o
+	${OBJECTDIR}/Chap8_Prob7.o
 
 
 # C Compiler Flags
@@ -62,10 +62,10 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gaddis_8thed_chap8_prob7.exe: ${OBJEC
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gaddis_8thed_chap8_prob7 ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/CPP_Temp.o: CPP_Temp.cpp 
+${OBJECTDIR}/Chap8_Prob7.o: Chap8_Prob7.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CPP_Temp.o CPP_Temp.cpp
+	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Chap8_Prob7.o Chap8_Prob7.cpp
 
 # Subprojects
 .build-subprojects:
