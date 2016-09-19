@@ -52,12 +52,13 @@ int main(int argc, char** argv) {
     //Process Data
     
     //Output Data
-    ttlPop(srtPop,popIncr,numDays);
+    ttlPop(srtPop,numDays,popIncr);
     return 0;
 }
 void ttlPop(int Pop,int Days,float Cent){
     for(int c = 0; c <= Days; c++){
-    Pop+=((Cent / 100) * Pop);  
     cout<<"Day:"<<c<<" Space:"<<Pop<<endl;
+    Pop+=(Pop * Cent)/100.0f ;
+
     }
 }
