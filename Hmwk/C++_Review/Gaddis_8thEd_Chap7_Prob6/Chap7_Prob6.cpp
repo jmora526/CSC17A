@@ -7,6 +7,8 @@
 
 //System Libraries
 #include <iostream>
+#include <fstream>
+#include <iomanip>
 using namespace std;
 
 //Global Constants
@@ -15,7 +17,29 @@ using namespace std;
 
 //Execution Begins Here
 int main(int argc, char** argv) {
+    //Introduce I/O
+    ifstream file;
+    
     //Declare Variables
+    const int month = 3; 
+    const int day =30;
+    char weather[month][day];
+    int count = 0;
+    
+    //Open File
+    file.open("weather.dat");
+    
+    //Read Char from the file.
+    while(count < day && file >> weather[month][count]){
+        count++;
+    }
+    
+    //Display
+    cout<<"Weather:"<<endl;
+    for(int c =0; c < day; c++){
+        cout<<weather[month][c]<<" ";
+        cout<<endl;
+    }
     
     //Input Data
     
