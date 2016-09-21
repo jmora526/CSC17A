@@ -24,22 +24,47 @@ int main(int argc, char** argv) {
     const int month = 3; 
     const int day =30;
     char weather[month][day];
-    int count = 0;
+    int sunny = 0 ,sttl = 0;
+    int cloudy = 0, cttl = 0;
+    int raining = 0, rttl = 0;
     
     //Open File
     file.open("weather.dat");
     
     //Read Char from the file.
-    while(count < day && file >> weather[month][count]){
-        count++;
+    for(int c = 0; c < month; c++){
+        for(int cc = 0; cc < day;cc++){
+            file>>weather[c][cc];          
+        }
     }
     
     //Display
     cout<<"Weather:"<<endl;
-    for(int c =0; c < day; c++){
-        cout<<weather[month][c]<<" ";
-        cout<<endl;
+    for(int c = 0; c < month; c++){
+        for(int cc = 0; cc < day;cc++){
+        cout<<weather[c][cc]<<endl;
+
+            switch(weather[c][cc]){
+                case 'C' :cloudy++;
+                break;
+                case 'S' :sunny++;
+                break;
+                case 'R' :raining++;
+                break;
+            }
+        }
     }
+    cout<<"Rain:"<<raining<<endl;
+    cout<<"Cloud:"<<cloudy<<endl;
+    cout<<"Sun:"<<sunny<<endl;
+    
+    rttl+=raining;
+    cttl+=cloudy;
+    sttl+=sunny;
+            
+    cout<<"Total Rain:"<<rttl<<endl;
+    cout<<"Total Cloud:"<<cttl<<endl;
+    cout<<"Total Sun:"<<sttl<<endl;
     
     //Input Data
     
