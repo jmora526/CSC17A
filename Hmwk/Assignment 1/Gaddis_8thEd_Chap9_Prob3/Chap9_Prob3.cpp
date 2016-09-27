@@ -1,8 +1,8 @@
 /* 
- * File: 
+ * File: Drop Lowest Score
  * Author: Jose Morales
  * Purpose:
- * Created on September 25, 2016, 1:56 PM
+ * Created on September 25, 2016, 7:59 PM
  */
 
 //System Libraries

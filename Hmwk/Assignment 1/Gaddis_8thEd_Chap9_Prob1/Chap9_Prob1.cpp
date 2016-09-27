@@ -1,8 +1,8 @@
 /* 
- * File: 
+ * File: Array Allocator
  * Author: Jose Morales
- * Purpose:
- * Created on September 25, 2016, 1:56 PM
+ * Purpose: Temp for all the programs
+ * Created on September 12, 2016, 1:04 PM
  */
 
 //System Libraries
@@ -16,7 +16,13 @@ using namespace std;
 //Execution Begins Here
 int main(int argc, char** argv) {
     //Declare Variables
-   
+    
+    //Input Data
+    
+    //Process Data
+    
+    //Output Data
+    
     return 0;
 }
 
