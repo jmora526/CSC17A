@@ -12,17 +12,29 @@ using namespace std;
 //Global Constants
 
 //Function Prototypes
-
+int *alloArr(int);
 //Execution Begins Here
 int main(int argc, char** argv) {
     //Declare Variables
+    const int NUM = 5;
+    int *arr;
     
-    //Input Data
+    //Grab 
+    arr = alloArr(NUM);
     
-    //Process Data
-    
-    //Output Data
+    //Display
+    for(int c = 0 ; c < NUM; c++){
+        cout<<arr[c]<<endl;
+    }
     
     return 0;
 }
 
+//Function
+int *alloArr(int NUM){
+    int *arry = new int[NUM];
+    for(int c = 0; c < NUM; c++){
+        arry[NUM];
+    }
+    return arry;
+}
