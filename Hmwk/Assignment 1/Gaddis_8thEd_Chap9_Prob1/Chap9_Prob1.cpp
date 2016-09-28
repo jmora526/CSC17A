@@ -12,29 +12,32 @@ using namespace std;
 //Global Constants
 
 //Function Prototypes
-int *alloArr(int);
+
 //Execution Begins Here
 int main(int argc, char** argv) {
     //Declare Variables
-    const int NUM = 5;
-    int *arr;
+    int NUM, *a, *pnt;
     
-    //Grab 
-    arr = alloArr(NUM);
+    //Introduce the input for the user.
+    cout<<"Enter the size of the array here:";
+    cin>>NUM;
     
-    //Display
-    for(int c = 0 ; c < NUM; c++){
-        cout<<arr[c]<<endl;
+    //Introduce the pointer
+    a = new int [NUM];
+    
+    //Add the number into the array the user inputed.
+    for(int c = 0; c < NUM; c++){
+        cout<<"Enter Number "<<c+1<<":";
+        cin>>*(a+c);
+    }
+    pnt = a;
+    
+    //Display the allocated array to the user.
+    cout<<endl;
+    cout<<"Array Allocation Done"<<endl;
+    for(int c = 0; c < NUM; c++){
+        cout<<*(pnt+c)<<" ";
     }
     
     return 0;
-}
-
-//Function
-int *alloArr(int NUM){
-    int *arry = new int[NUM];
-    for(int c = 0; c < NUM; c++){
-        arry[NUM];
-    }
-    return arry;
 }

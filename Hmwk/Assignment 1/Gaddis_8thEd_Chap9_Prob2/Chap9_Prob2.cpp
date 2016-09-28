@@ -1,42 +1,70 @@
 /* 
  * File: Test Scores # 1
  * Author: Jose Morales
- * Purpose:
+ * Purpose: Allocate array,average,high&low.
  * Created on September 25, 2016, 7:56 PM
  */
 
 //System Libraries
 #include <iostream>
 using namespace std;
-
 //Global Constants
 
 //Function Prototypes
-
+void arg(int*,int);
+void mkSort(int*,int);
 //Execution Begins Here
 int main(int argc, char** argv) {
     //Declare Variables
-    int NUM;
-    int *list;
-    
-    //Input
-    cout<<"Enter number of tests:";
-    cin>>NUM;
-    
-    //Introduce array
-    list = new int[NUM];
-    
-    //Introduce Loop to input number of test scores.
-    for(int c = 0; c < NUM; c++){
-        cout<<"Enter test score:";
-        cin>>list[NUM];
+    int numTest, *ar, *point;  
+    //Introduce the input for the user.
+    cout<<"Enter the number of tests:";
+    cin>>numTest;  
+    //Introduce the pointer
+    ar = new int [numTest];   
+    //Add the number into the array the user inputed.
+    for(int c = 0; c < numTest; c++){
+        cout<<"Test "<<c+1<<":";
+        cin>>*(ar+c);
     }
-    
-    //Introduce Loop to output number of test scores.
-    for(int c = 0; c < NUM; c++)
-        cout<<list[c]<<", "<<endl;
-        delete[] list;
-    
+    point = ar;   
+    //Display the allocated array to the user.
+    cout<<"Test scores in original order"<<endl;
+    for(int c = 0; c < numTest; c++){
+        cout<<*(point+c)<<" ";
+    }
+    //Sorted
+    cout<<endl;
+    cout<<"Test Scores sorted"<<endl;
+    mkSort(ar,numTest);  
+    //Average the numbers
+    cout<<endl;
+    cout<<"Average:";
+    arg(ar,numTest); 
+    //Delete
+    delete [] ar;
     return 0;
 }
-
+void arg(int *ar,int numTest){
+    float avg = 0;
+    for(int c = 0; c < numTest; c++){
+        avg += *(ar+c);
+    }
+    avg/=numTest;
+    cout<<avg;
+}
+void mkSort(int *ar,int numTest){
+    for(int i=0;i<numTest-1;i++){
+        for(int j=i+1;j<numTest;j++){
+            if(*(ar+i) > *(ar+j)){
+                *(ar+i) = *(ar+i)^*(ar+j);
+                *(ar+j) = *(ar+i)^*(ar+j);
+                *(ar+i) = *(ar+i)^*(ar+j);
+            }
+        }
+    }
+    //Display
+    for(int c = 0; c < numTest; c++){
+        cout<<*(ar+c)<<" ";
+    }
+}
