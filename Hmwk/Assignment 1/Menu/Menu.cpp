@@ -37,8 +37,9 @@ void prob7();
 void prob8();
 void arrSelectionSortt(int *[], int);
 void prob9();
-
-
+float mean(int*,int);
+float med(int*,int);
+void mkkSort(int*,int);
 //Execution Begins Here
 int main(int argc, char** argv) {
     //Declare the loop variable
@@ -475,6 +476,61 @@ void arrSelectionSortt(int *arr[], int size){
 //000000011111111112222222222333333333344444444445555555555666666666677777777778
 //345678901234567890123456789012345678901234567890123456789012345678901234567890
 void prob9(){
+//Declare Variables
+    const int NUM = 15;
+    int *list = nullptr;
+    list = new int[NUM];
     
+    cout<<"Random Array Here"<<endl;
+    for(int c = 0; c <NUM; c++){
+        *(list+c)=rand()%50;
+        cout<<list[c]<<" ";
+    }
+    cout<<endl;
+    //Sort
+    mkkSort(list,NUM);
+    //Get Mean
+    mean(list,NUM);
+    //Get Med
+    med(list,NUM);
 }
-
+float mean(int *list, int NUM){
+    int m = 0;
+    for(int c = 0; c < NUM; c++){
+        m+=*(list+c);
+    }
+    cout<<endl;
+    cout<<"Mean:";
+    cout<<m/NUM<<endl;
+}
+float med(int *list, int NUM){
+    float median = 0;
+    if(NUM%2 == 0){
+        NUM/=2;
+        median=*(list+NUM-1)+*(list+NUM);
+        median/=2;
+    }
+    else{
+        NUM/=2;
+        median=*(list+NUM);
+    }
+    cout<<"Median:";
+    cout<<median<<endl;
+}
+void mkkSort(int *list,int NUM){
+    for(int i=0;i<NUM-1;i++){
+        for(int j=i+1;j<NUM;j++){
+            if(*(list+i) > *(list+j)){
+                *(list+i) = *(list+i)^*(list+j);
+                *(list+j) = *(list+i)^*(list+j);
+                *(list+i) = *(list+i)^*(list+j);
+            }
+        }
+    }
+    cout<<endl;
+    cout<<"Sorted Array"<<endl;
+     for(int c = 0; c < NUM; c++){
+        cout<<*(list+c)<<" ";    
+    }
+    cout<<endl;
+}
