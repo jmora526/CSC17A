@@ -27,6 +27,7 @@ void prob3();
 void argg(int*,int);
 void mkSortt(int*,int);
 void prob4();
+void arggg(int*,int);
 void prob5();
 int doSomething(int *, int *);
 void prob6();
@@ -231,11 +232,11 @@ void prob3(){
     //Average the numbers
     cout<<endl;
     cout<<"Average:";
-    arg(ar,numTest); 
+    arggg(ar,numTest); 
     //Delete
     delete [] ar;
 }
-void argg(int *ar,int numTest){
+void arggg(int *ar,int numTest){
     float avg = 0;
     for(int c = 0; c < numTest; c++){
         avg += *(ar+c);
@@ -269,7 +270,42 @@ void mkSortt(int *ar,int numTest){
 //000000011111111112222222222333333333344444444445555555555666666666677777777778
 //345678901234567890123456789012345678901234567890123456789012345678901234567890
 void prob4(){
-    
+  //Declare Variables
+    int numTest, *ar, *point;  
+    //Introduce the input for the user.
+    cout<<"Enter the number of tests:";
+    cin>>numTest; 
+    //Introduce the pointer
+    ar = new int [numTest];
+    //Add the number into the array the user inputed.
+    for(int c = 0; c < numTest; c++){
+        cout<<"Test "<<c+1<<":";
+        cin>>*(ar+c);
+    }
+    point = ar;   
+    //Display the allocated array to the user.
+    cout<<"Test scores in original order"<<endl;
+    for(int c = 0; c < numTest; c++){
+        cout<<*(point+c)<<" ";
+    }
+    //Sorted
+    cout<<endl;
+    cout<<"Test Scores sorted"<<endl;
+    mkSort(ar,numTest);  
+    //Average the numbers
+    cout<<endl;
+    cout<<"Average:";
+    argg(ar,numTest); 
+    //Delete
+    delete [] ar;
+}
+void argg(int *ar,int numTest){
+    float avg = 0;
+    for(int c = 0; c < numTest; c++){
+        avg += *(ar+c);
+    }
+    avg/=numTest;
+    cout<<avg;
 }
 //000000011111111112222222222333333333344444444445555555555666666666677777777778
 //345678901234567890123456789012345678901234567890123456789012345678901234567890

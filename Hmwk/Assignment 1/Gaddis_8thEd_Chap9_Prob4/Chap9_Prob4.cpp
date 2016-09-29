@@ -12,7 +12,7 @@ using namespace std;
 //Global Constants
 
 //Function Prototypes
-void arg(int*,int);
+void argg(int*,int);
 void mkSort(int*,int);
 //Execution Begins Here
 int main(int argc, char** argv) {
@@ -41,12 +41,12 @@ int main(int argc, char** argv) {
     //Average the numbers
     cout<<endl;
     cout<<"Average:";
-    arg(ar,numTest); 
+    argg(ar,numTest); 
     //Delete
     delete [] ar;
     return 0;
 }
-void arg(int *ar,int numTest){
+void argg(int *ar,int numTest){
     float avg = 0;
     for(int c = 0; c < numTest; c++){
         avg += *(ar+c);
