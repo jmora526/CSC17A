@@ -7,6 +7,7 @@
 
 //System Libraries
 #include <iostream>
+#include <string>
 using namespace std;
 //Global Constants
 
@@ -19,9 +20,9 @@ int main(int argc, char** argv) {
     int numTest, *ar, *point;  
     //Introduce the input for the user.
     cout<<"Enter the number of tests:";
-    cin>>numTest;  
+    cin>>numTest; 
     //Introduce the pointer
-    ar = new int [numTest];   
+    ar = new int [numTest];
     //Add the number into the array the user inputed.
     for(int c = 0; c < numTest; c++){
         cout<<"Test "<<c+1<<":";
@@ -50,7 +51,7 @@ void arg(int *ar,int numTest){
     for(int c = 0; c < numTest; c++){
         avg += *(ar+c);
     }
-    avg/=numTest-1;
+    avg/=numTest;
     cout<<avg;
 }
 void mkSort(int *ar,int numTest){
@@ -64,8 +65,7 @@ void mkSort(int *ar,int numTest){
         }
     }
     //Display
-    for(int c = 0; c < numTest-1; c++){
+    for(int c = 0; c < numTest; c++){
         cout<<*(ar+c)<<" ";
     }
 }
-
