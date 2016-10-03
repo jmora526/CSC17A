@@ -1,12 +1,13 @@
 /* 
- * File: 
+ * File: Weather Statistics
  * Author: Jose Morales
- * Purpose:
+ * Purpose: Use a structure to generate  an array for 12 months.
  * Created on September 25, 2016, 1:56 PM
  */
 
 //System Libraries
 #include <iostream>
+#include <string>
 using namespace std;
 
 //User Libraries
