@@ -12,8 +12,9 @@ using namespace std;
 
 //User LibrariesS
 #include "corSale.h"
-//Global Constants
 enum diviv {First,Second,Third,Fourth};
+//Global Constants
+
 //Function Prototypes
 
 //Execution Begins Here
