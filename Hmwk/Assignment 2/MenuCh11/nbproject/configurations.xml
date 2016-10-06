@@ -4,7 +4,6 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>spkr.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -13,7 +12,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>Chap11_Prob9.cpp</itemPath>
+      <itemPath>CPP_Temp.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -40,9 +39,7 @@
           <standard>8</standard>
         </ccTool>
       </compileType>
-      <item path="Chap11_Prob9.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="spkr.h" ex="false" tool="3" flavor2="0">
+      <item path="CPP_Temp.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -66,9 +63,7 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="Chap11_Prob9.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="spkr.h" ex="false" tool="3" flavor2="0">
+      <item path="CPP_Temp.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
   </confs>
