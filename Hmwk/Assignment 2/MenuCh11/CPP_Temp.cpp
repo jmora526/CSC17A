@@ -87,7 +87,7 @@ void menu(){
     cout<<"Type 6 to solve Ch11.6"<<endl;
     cout<<"Type 7 to solve Ch11.7"<<endl;
     cout<<"Type 8 to solve Ch11.9"<<endl;
-    cout<<"Type 9 to solve "<<endl; 
+    cout<<"Type 9 to solve Structure Convertion"<<endl; 
     cout<<"Type a letter to quit with no solutions."<<endl;
 }
 
