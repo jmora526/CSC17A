@@ -1,5 +1,5 @@
 /* 
- * File: Word Counter
+ * File: Average Number of Letters
  * Author: Jose Morales
  * Purpose: Count words from string
  * Created on Oct 16, 2016, 4:56 PM
@@ -20,7 +20,7 @@ using namespace std;
 //Global Constants
 
 //Function Prototypes
-int spCount(char[]);
+int spCount(char *);
 //Execution Begins Here
 int main(int argc, char** argv) {
     //Declare Variables
@@ -37,13 +37,12 @@ int main(int argc, char** argv) {
     return 0;
 }
 //Function
-int spCount(char list[]){
-    int c = 0;
-    while(list[c] != ' ' && list[c] != '\0'){
-        c++;
-        if(list[c] == ' '){
-            list[c] = '\0';
-        }
-    }
+int spCount(char *list){
+    int c = 1;
+    while(*list != '\0'){
+        if(*list == ' ')
+            c++;
+            list++;       
+    }   
     return c;
 }
