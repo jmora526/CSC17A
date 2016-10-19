@@ -39,15 +39,16 @@ int main(int argc, char** argv) {
     }
     else{
         show(file);
-    }
-    
+    }    
     file.close();
     return 0;
 }
 
 void show (fstream &file){
     string line;
-    while(file >> line){
-        cout<<line<<endl;
+    int c = 0;
+    while(file >> line && c < 10){
+        cout<<line<<" ";
+        c++;
     }
 }
