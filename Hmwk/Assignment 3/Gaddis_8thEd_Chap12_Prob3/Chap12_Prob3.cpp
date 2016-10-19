@@ -34,23 +34,21 @@ void joke(){
     string line;
     //Introduce file
     joke.open("joke.txt",ios::in);
-    while(joke){
         getline(joke,line);
         cout<<line;
         cout<<endl;
-    }
-    joke.close();
+        joke.close();
 }
 void punch(){
     fstream punch;
     string line;
     //Introduce file
     punch.open("punchline.txt",ios::in);
-    while(punch){
+        punch.seekg(60,ios::beg);    
         getline(punch,line);
         cout<<line;
         cout<<endl;
-    }
+    
    
     punch.close();
 }
