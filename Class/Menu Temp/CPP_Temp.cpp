@@ -1,5 +1,5 @@
 /* 
- * File: Menu for Chapter 11
+ * File: Menu Temp
  * Author: Jose Morales
  * Purpose:
  * Created on September 25, 2016, 1:56 PM
@@ -7,211 +7,108 @@
 
 ///System Libraries
 #include <iostream>
-#include <iomanip>
-#include <cmath>
-#include <cstdlib>
-#include <ctime>
 using namespace std;
 
-//User Libraries
+//Global Constants Here!!!
 
-//Global Constants
+//Function Prototypes Here!!!
+void Menu();
+int getN();
+void def(int);
+void problem1();
+void problem2();
+void problem3();
+void problem4();
+void problem5();
+void problem6();
+void problem7();
+void problem8();
+void problem9();
+void problem10();
 
-//Function Prototypes
-void menu();
-void prob1();
-void prob2();
-void prob3();
-void prob4();
-void prob5();
-void prob6();
-void prob7();
-void prob8();
-void prob9();
-//Execution Begins Here
-int main(int argc, char** argv) {
-    //Declare the loop variable
-    char choice;
-    //General Menu Format
+//Begin Execution Here!!!
+int main(int argv,char *argc[]){
+    int inN;
     do{
-        //Display the selection
-        menu();
-        //Read the choice
-        cin>>choice;
-        //Solve a problem that has been chosen.
-        switch(choice){
-                case 49 :prob1();break;
-                case 50 :prob2();break;
-                case 51 :prob3();break;
-                case 52 :prob4();break;
-                case 53 :prob5();break;
-                case 54 :prob6();break;
-                case 55 :prob7();break;
-                case 56 :prob8();break;
-                case 57 :prob9();break;
-                
-                default:{
-                        cout<<"Exit?"<<endl;
-                }
-        };
-    }while(choice<='9');
-    
-    //Exit stage right
+        Menu();
+        inN=getN();
+        switch(inN){
+        case 1:    problem1();break;
+        case 2:    problem2();break;
+        case 3:    problem3();break;
+        case 4:    problem4();break;
+        case 5:    problem5();break;
+        case 6:    problem6();break;
+        case 7:    problem7();break;
+        case 8:    problem8();break;
+        case 9:    problem9();break;
+        case 10:   problem10();break;
+        default:   def(inN);}
+    }while(inN>=1&&inN<=6);
     return 0;
 }
 
-//000000011111111112222222222333333333344444444445555555555666666666677777777778
-//345678901234567890123456789012345678901234567890123456789012345678901234567890
-/**************************** Menu *********************************************
- *Inputs
- *      None
- *Outputs
- *      None
-*/
-//000000011111111112222222222333333333344444444445555555555666666666677777777778
-//345678901234567890123456789012345678901234567890123456789012345678901234567890
-void menu(){
-    cout<<"Type 1 to solve Gaddis_8thEd_Chap9_Prob1"<<endl;
-    cout<<"Type 2 to solve Gaddis_8thEd_Chap9_Prob2"<<endl;
-    cout<<"Type 3 to solve Gaddis_8thEd_Chap9_Prob3"<<endl;
-    cout<<"Type 4 to solve Gaddis_8thEd_Chap9_Prob4"<<endl;
-    cout<<"Type 5 to solve Gaddis_8thEd_Chap9_Prob5"<<endl;
-    cout<<"Type 6 to solve Gaddis_8thEd_Chap9_Prob6"<<endl;
-    cout<<"Type 7 to solve Gaddis_8thEd_Chap9_Prob10"<<endl;
-    cout<<"Type 8 to solve Gaddis_8thEd_Chap9_Prob7"<<endl;
-    cout<<"Type 9 to solve Median,Mode,Range"<<endl; 
-    cout<<"Type a letter to quit with no solutions."<<endl;
+void Menu(){
+    cout<<"Menu for Ch12 & Ch10"<<endl;
+    cout<<"Type 1 for problem 1"<<endl;
+    cout<<"Type 2 for problem 2"<<endl;
+    cout<<"Type 3 for problem 3"<<endl;
+    cout<<"Type 4 for problem 4"<<endl;
+    cout<<"Type 5 for problem 5"<<endl;
+    cout<<"Type 6 for problem 6"<<endl;
+    cout<<"Type 7 for problem 7"<<endl;
+    cout<<"Type 8 for problem 8"<<endl;
+    cout<<"Type 9 for problem 9"<<endl;
+    cout<<"Type 10 for problem 10"<<endl;
+    cout<<"Type anything else to exit \n"<<endl;
 }
 
-//000000011111111112222222222333333333344444444445555555555666666666677777777778
-//345678901234567890123456789012345678901234567890123456789012345678901234567890
-/**************************** Problem 1 ****************************************
- *Inputs
- *      None
- *Outputs
- *      None
-*/
-//000000011111111112222222222333333333344444444445555555555666666666677777777778
-//345678901234567890123456789012345678901234567890123456789012345678901234567890
-void prob1(){
-    //Declare Variables
-   
+int getN(){
+        int inN;
+        cin>>inN;
+        return inN;
 }
 
-//000000011111111112222222222333333333344444444445555555555666666666677777777778
-//345678901234567890123456789012345678901234567890123456789012345678901234567890
-/****************************** Problem 2 **************************************
- *Inputs
- *      None
- *Outputs
- *      None
-*/
-//000000011111111112222222222333333333344444444445555555555666666666677777777778
-//345678901234567890123456789012345678901234567890123456789012345678901234567890
-void prob2(){
-//Declare Variables
-
+void problem1(){
+        cout<<"In problem # 1"<<endl<<endl;
 }
 
-//000000011111111112222222222333333333344444444445555555555666666666677777777778
-//345678901234567890123456789012345678901234567890123456789012345678901234567890
-/******************************* Problem 3 *************************************
- *Inputs
- *      None
- *Outputs
- *      None
-*/
-//000000011111111112222222222333333333344444444445555555555666666666677777777778
-//345678901234567890123456789012345678901234567890123456789012345678901234567890
-void prob3(){
- //Declare Variables
-    
+void problem2(){
+        cout<<"In problem # 2"<<endl<<endl;
 }
 
-//000000011111111112222222222333333333344444444445555555555666666666677777777778
-//345678901234567890123456789012345678901234567890123456789012345678901234567890
-/******************************* Problem 4 *************************************
- *Inputs
- *      None
- *Outputs
- *      None
-*/
-//000000011111111112222222222333333333344444444445555555555666666666677777777778
-//345678901234567890123456789012345678901234567890123456789012345678901234567890
-void prob4(){
-  
+void problem3(){
+        cout<<"In problem # 3"<<endl<<endl;
 }
 
-//000000011111111112222222222333333333344444444445555555555666666666677777777778
-//345678901234567890123456789012345678901234567890123456789012345678901234567890
-/******************************* Problem 5 *************************************
- *Inputs
- *      None
- *Outputs
- *      None
-*/
-//000000011111111112222222222333333333344444444445555555555666666666677777777778
-//345678901234567890123456789012345678901234567890123456789012345678901234567890
-void prob5(){
-//Declare Variables
- 
+void problem4(){
+        cout<<"In problem # 4"<<endl<<endl;
 }
 
-//000000011111111112222222222333333333344444444445555555555666666666677777777778
-//345678901234567890123456789012345678901234567890123456789012345678901234567890
-/******************************* Problem 6 *************************************
- *Inputs
- *      None
- *Outputs
- *      None
-*/
-//000000011111111112222222222333333333344444444445555555555666666666677777777778
-//345678901234567890123456789012345678901234567890123456789012345678901234567890
-void prob6(){
-//Declare Variables
-
+void problem5(){
+        cout<<"In problem # 5"<<endl<<endl;
 }
 
-//000000011111111112222222222333333333344444444445555555555666666666677777777778
-//345678901234567890123456789012345678901234567890123456789012345678901234567890
-/******************************* Problem 7 *************************************
- *Inputs
- *      None
- *Outputs
- *      None
-*/
-//000000011111111112222222222333333333344444444445555555555666666666677777777778
-//345678901234567890123456789012345678901234567890123456789012345678901234567890
-void prob7(){
-//Declare Variables
-  
-}
-//000000011111111112222222222333333333344444444445555555555666666666677777777778
-//345678901234567890123456789012345678901234567890123456789012345678901234567890
-/******************************* Problem 8 *************************************
- *Inputs
- *      None
- *Outputs
- *      None
-*/
-//000000011111111112222222222333333333344444444445555555555666666666677777777778
-//345678901234567890123456789012345678901234567890123456789012345678901234567890
-void prob8(){
- //Declare Variables
-
+void problem6(){
+        cout<<"In problem # 6"<<endl<<endl;
 }
 
-//000000011111111112222222222333333333344444444445555555555666666666677777777778
-//345678901234567890123456789012345678901234567890123456789012345678901234567890
-/******************************* Problem 9 *************************************
- *Inputs
- *      None
- *Outputs
- *      None
-*/
-//000000011111111112222222222333333333344444444445555555555666666666677777777778
-//345678901234567890123456789012345678901234567890123456789012345678901234567890
-void prob9(){
-//Declare Variables
+void problem7(){
+        cout<<"In problem # 7"<<endl<<endl;
+}
 
+void problem8(){
+        cout<<"In problem # 8"<<endl<<endl;
+}
+
+void problem9(){
+        cout<<"In problem # 9"<<endl<<endl;
+}
+
+void problem10(){
+        cout<<"In problem # 10"<<endl<<endl;
+}
+
+void def(int inN){
+        cout<<"You typed "<<inN<<" to exit the program"<<endl;
 }

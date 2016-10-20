@@ -31,6 +31,7 @@ int main(int argc, char** argv) {
    
     //Display
     cout<<"This String has "<<spaCount(wCount)<<" words."<<endl;
+    cout<<endl;
     return 0;
 }
 //Function

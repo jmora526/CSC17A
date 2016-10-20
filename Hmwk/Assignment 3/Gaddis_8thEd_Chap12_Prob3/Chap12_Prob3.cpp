@@ -24,8 +24,7 @@ int main(int argc, char** argv) {
     //Display Joke
     joke();
     //Display Punch Line
-    punch();
-    
+    punch();    
     return 0;
 }
 //Function

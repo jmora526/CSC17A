@@ -23,12 +23,13 @@ void bckWard(char *, int);
 //Execution Begins Here
 int main(int argc, char** argv) {
     //Declare Variables
-    const int SIZE = 21;
-    char str1[SIZE];
+        const int SIZE = 21;
+        char str1[SIZE];
     //User input for backwards string
-    cout<<"Enter string to shift backwards (no longer than 20 chars)";
-    cin.getline(str1,SIZE);
-    bckWard(str1,SIZE);
+        cout<<"Enter string to shift backwards:";
+        cin.getline(str1,SIZE);
+        bckWard(str1,SIZE);
+        cout<<endl;
     return 0;
 }
 //Function

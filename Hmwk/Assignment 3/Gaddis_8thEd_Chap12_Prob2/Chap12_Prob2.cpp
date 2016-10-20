@@ -16,7 +16,7 @@ using namespace std;
 //Global Constants
 
 //Function Prototypes
-void show(fstream &);
+void showW(fstream &);
 //Execution Begins Here
 int main(int argc, char** argv) {
     //Declare Variables
@@ -35,18 +35,19 @@ int main(int argc, char** argv) {
     cout<<"Error, File not Found!"<<endl;    
     }
     else{
-        show(file);
+        showW(file);
     }    
     file.close();
     return 0;
 }
 
-void show (fstream &file){
+void showW (fstream &file){
     string line;
     int c = 0;
-    while(file >> line && c < 10){
-        cout<<line<<" ";
+    while(file >> line && c <= 10){
         c++;
+        getline(file,line);
+        cout<<line<<endl;
     }
 }
 

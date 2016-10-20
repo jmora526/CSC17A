@@ -1,5 +1,5 @@
 /* 
- * File: Average Number of Letters
+ * File: Average Number of Words
  * Author: Jose Morales
  * Purpose: Count words from string
  * Created on Oct 16, 2016, 4:56 PM
