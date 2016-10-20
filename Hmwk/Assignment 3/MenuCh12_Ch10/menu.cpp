@@ -11,9 +11,11 @@
 #include <fstream>
 using namespace std;
 
-//Global Constants Here!!!
+//User Libraries
+#include "division.h"
+//Global Constants
 
-//Function Prototypes Here!!!
+//Function Prototypes
 void Menu();
 int getN();
 void def(int);
@@ -36,6 +38,7 @@ void joke();
 void punch();
 void problem9();
 void problem10();
+void show2(fstream &);
 
 //Begin Execution Here!!!
 int main(int argv,char *argc[]){
@@ -348,12 +351,59 @@ void punch(){
 //******************************************************************************
 void problem9(){
         cout<<"In problem # 9"<<endl<<endl;
+    //Declare Variables
+        division div;
+        fstream file;
+    //Introduce File
+        file.open("divSales.txt",ios::out);
+    //Intro Div
+        cout<<"Enter The Division Name:";
+        cin>>div.name;
+    //Introduce Loop
+    for(int c = 0; c < 4; c++){
+        cout<<"Enter The Quarter:";
+        cin>>div.quarter[c];
+        cout<<"Enter The Quarter Sales "<<c+1<<":";
+        cin>>div.sales[c];
+        file<<div.name<<endl;
+        file<<div.sales[c]<<endl;
+        file<<div.quarter[c]<<endl; 
+    }  
+    file.close();
 }
-
+//******************************************************************************
+//******************************************************************************
 void problem10(){
         cout<<"In problem # 10"<<endl<<endl;
+    //Declare Variables
+        string txtName;
+        fstream file;
+    //File to look for
+        cout<<"Enter the name of the file:textF.dat ";
+        cin>>txtName;
+        cout<<endl;
+    //Open File
+        file.open(txtName, ios::in);
+    //Check if file exists
+    if(file.fail()){
+    cout<<"Error, File not Found!"<<endl;    
+    }
+    else{
+        show2(file);
+    }    
+    file.close();
 }
-
+//Function for prob 10
+void show2 (fstream &file){
+   string line;
+   //Intro
+   file.seekg(47,ios::beg);
+   getline(file,line);
+   cout<<line;
+   cout<<endl;
+}
+//******************************************************************************
+//******************************************************************************
 void def(int inN){
         cout<<"You typed "<<inN<<" to exit the program"<<endl;
 }
