@@ -1,14 +1,16 @@
 /* 
- * File: BlackJack  
+ * File: Menu Temp
  * Author: Jose Morales
  * Purpose:
- * Due on October 28, 2016, 11:59 PM
+ * Created on September 25, 2016, 1:56 PM
  */
 
-//System Libraries
+///System Libraries
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <fstream>
+#include <string>
 using namespace std;
 
 //User Libraries
@@ -16,14 +18,82 @@ using namespace std;
 //Global Constants
 
 //Function Prototypes
+void Menu();
+int getN();
+void def(int);
+void rules();
+void read(fstream &);
+void game();
 int hitValue();
 void suit();
 void check21(int);
 void bust(int);
 void compare(int,int);
-//Execution Begins Here
-int main(int argc, char** argv) {
-   //Set the random number seed for variability
+void tnks();
+void problem3();
+//Begin Execution Here!!!
+int main(int argv,char *argc[]){
+    int num;
+    do{
+        Menu();
+        num=getN();
+        switch(num){
+        case 1:    rules();break;
+        case 2:    game();break;
+        case 3:    problem3();break;
+        default:   def(num);}
+    }while(num>=1&&num<=3);
+    return 0;
+}
+
+void Menu(){
+    cout<<"Welcome to BlackJack"<<endl;
+    cout<<"Type 1 getting the rules"<<endl;
+    cout<<"Type 2 to play blackjack"<<endl;
+    cout<<"Type 3 to read output file"<<endl;  
+    cout<<"Type anything else to exit \n"<<endl;
+}
+
+int getN(){
+        int num;
+        cin>>num;
+        return num;
+}
+
+void rules(){
+    cout<<"(1.)RULES"<<endl<<endl;
+    //Declare Variables
+        string txtName; 
+        fstream file;
+    //Open File
+        file.open("rules.txt", ios::in);
+    //Check if file exists
+        if(file.fail()){
+            cout<<"Error, File not Found!"<<endl;    
+        }
+        else{
+            read(file);
+        }    
+        file.close();
+}
+//Functions
+void read (fstream &file){
+    string line;
+    int c = 0;
+    while(file >> line && c <= 15){
+        c++;
+        getline(file,line);
+        cout<<line<<endl;
+    }
+    cout<<endl;
+}
+
+
+/*******************************************************************************
+*******************************************************************************/
+void game(){
+    cout<<"In problem # 2"<<endl<<endl;
+    //Set the random number seed for variability
     srand(static_cast<unsigned int>(time(0)));      
     //Declare Variables
     playerinfo info;    //Structure player info.
@@ -33,7 +103,7 @@ int main(int argc, char** argv) {
     int sum = 0;
     char SoH;           //Store choice of hitting or standing.
     char choice;        //Choice value of ace.
-    
+
     //Computer Blackjack
     cpu[0].value = hitValue();
     cpu[1].value = hitValue();
@@ -245,32 +315,49 @@ int main(int argc, char** argv) {
     //Check if user got 21
     check21(ttl);
     bust(ttl);
-    return 0;
 }
-//Functions
+//Functions for game
+void tnks(){
+    fstream tnks;
+    string line;
+    //Introduce file
+        tnks.open("tnks.txt",ios::in);
+        tnks.seekg(42,ios::beg);    
+        getline(tnks,line);
+        cout<<line;
+        cout<<endl;
+    //Close
+        tnks.close();
+   
+}
+
 void compare(int ttl, int sum){
     if(sum > 21){
         cout<<"You have won! The dealer went bust!"<<endl;
         cout<<"Dealer's Total:"<<sum<<endl;
-        cout<<"Yout Total:"<<ttl<<endl;
+        cout<<"Your Total:"<<ttl<<endl;
+        tnks();
         exit(0);
     }
     if(sum > ttl){
         cout<<"You have Lost! The dealer hit higher then you!"<<endl;
         cout<<"Dealer's Total:"<<sum<<endl;
         cout<<"Your Total:"<<ttl<<endl;
+        tnks();
         exit(0);
     }
     if(ttl > sum){
         cout<<"You have won! You hit higher than the dealer!"<<endl;
         cout<<"Dealer's Total:"<<sum<<endl;
-        cout<<"Yout Total:"<<ttl<<endl;
+        cout<<"Your Total:"<<ttl<<endl;
+        tnks();
         exit(0);
     }
     if(ttl = sum){
         cout<<"Game is a tie/push"<<endl;
         cout<<"Dealer's Total:"<<sum<<endl;
-        cout<<"Yout Total:"<<ttl<<endl;
+        cout<<"Your Total:"<<ttl<<endl;
+        tnks();
         exit(0);
     }
 }
@@ -341,4 +428,12 @@ int hitValue(){
             break;        
     }
 }
+/*******************************************************************************
+*******************************************************************************/
+void problem3(){
+        cout<<"In problem # 3"<<endl<<endl;
+}
 
+void def(int inN){
+        cout<<"You typed "<<inN<<" to exit the program"<<endl;
+}

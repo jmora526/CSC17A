@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin-Windows
-CND_ARTIFACT_NAME_Debug=menu_temp
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/menu_temp
+CND_ARTIFACT_NAME_Debug=blkjk2
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/blkjk2
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin-Windows/package
-CND_PACKAGE_NAME_Debug=menutemp.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/menutemp.tar
+CND_PACKAGE_NAME_Debug=blkjk2.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/blkjk2.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin-Windows
-CND_ARTIFACT_NAME_Release=menu_temp
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/menu_temp
+CND_ARTIFACT_NAME_Release=blkjk2
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/blkjk2
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin-Windows/package
-CND_PACKAGE_NAME_Release=menutemp.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/menutemp.tar
+CND_PACKAGE_NAME_Release=blkjk2.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/blkjk2.tar
 #
 # include compiler specific variables
 #

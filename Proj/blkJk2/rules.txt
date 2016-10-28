@@ -1,0 +1,6 @@
+In In Blackjack, the ace can be counted as a one or eleven depending on the user's choice.
+All All the cards are face valued exept for the Ace,King,Queen,and Jack the latter will
+alway always have a face value of ten.In this blackjack game there are two choices, the choices
+are are between hitting or standing. Hitting will allow the user to gain another card, yet
+standing standing will give no card and compare the user and dealer's decks to pick a winner.
+Try Try to get to twenty one or close to it to beat the dealer without busting. 
