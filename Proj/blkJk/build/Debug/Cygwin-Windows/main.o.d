@@ -1,3 +1,3 @@
-build/Debug/Cygwin-Windows/main.o: main.cpp blkInfo.h
+build/Debug/Cygwin-Windows/main.o: main.cpp playinfo.h
 
-blkInfo.h:
+playinfo.h:

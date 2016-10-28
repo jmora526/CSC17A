@@ -1,0 +1,27 @@
+/* 
+ * File:   playinfo.h
+ * Author: Jose
+ *
+ * Created on October 27, 2016, 10:41 AM
+ */
+
+#ifndef PLAYINFO_H
+#define PLAYINFO_H
+
+struct playerinfo {
+    string name;
+    int money;
+};
+
+struct player{
+    unsigned int value = 0;
+    string suit;  
+};
+
+struct dealer{
+    unsigned int value = 0;
+    string suit;  
+};
+
+#endif /* PLAYINFO_H */
+
