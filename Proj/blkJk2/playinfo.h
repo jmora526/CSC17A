@@ -8,14 +8,10 @@
 #ifndef PLAYINFO_H
 #define PLAYINFO_H
 
-struct playerinfo {
-    string name;
-    int money;
-};
-
 struct player{
     unsigned int value = 0;
-    string suit;  
+    string suit;
+    string name;
 };
 
 struct dealer{
