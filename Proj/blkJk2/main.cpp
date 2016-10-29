@@ -1,8 +1,8 @@
 /* 
- * File: Menu Temp
+ * File: Project
  * Author: Jose Morales
  * Purpose:
- * Created on September 25, 2016, 1:56 PM
+ * Due October 28, 2016, 11:59 PM
  */
 
 ///System Libraries
@@ -27,8 +27,8 @@ void game();
 int hitValue();
 string suit();
 void check21(int);
-void bust(int);
-void compare(int,int);
+void bust(int,int,string);
+void compare(int,int,string);
 void tnks();
 //Begin Execution Here!!!
 int main(int argv,char *argc[]){
@@ -54,6 +54,7 @@ void Menu(){
 int getN(){
         int num;
         cin>>num;
+        cin.ignore();
         return num;
 }
 
@@ -94,12 +95,16 @@ void game(){
     srand(static_cast<unsigned int>(time(0)));      
     //Declare Variables
     player user[10];    //Structure for player cards.
-    dealer cpu[10];         //Structure for dealer cards. 
+    dealer cpu[10];     //Structure for dealer cards. 
     int ttl = 0;        //Keep total of user cards.
-    int sum = 0;
+    int sum = 0;        //Keep total of computer cards
     char SoH;           //Store choice of hitting or standing.
     char choice;        //Choice value of ace.
-
+    string name;        //Store name of user.
+    
+    //Input User Name.
+    cout<<"Enter your name:";
+    getline(cin,name);
     //Computer Blackjack
     cpu[0].value = hitValue();
     cpu[0].suit = suit();
@@ -193,10 +198,10 @@ void game(){
     user[1].suit = suit();      //Suit of Second Card.
     
     //Show User His Cards.
-    cout<<"YOUR HAND"<<endl;
+    cout<<name<<"'s Hand"<<endl;
     cout<<"***********************"<<endl;
-    cout<<"Your Card #1:"<<user[0].value<<user[0].suit<<endl;
-    cout<<"Your Card #2:"<<user[1].value<<user[1].suit<<endl;
+    cout<<"Card #1:"<<user[0].value<<user[0].suit<<endl;
+    cout<<"Card #2:"<<user[1].value<<user[1].suit<<endl;
     
     //Check if player got an ace on first card.
     if(user[0].value == 1){
@@ -228,7 +233,7 @@ void game(){
     
     //Check if user got 21
     check21(ttl);
-    bust(ttl);
+    bust(ttl,sum,name);
     //Binary from file and out
     fstream x;
     x.open("binary.dat",ios::out | ios::binary);
@@ -255,24 +260,25 @@ void game(){
         }
         //Stand Option - Place Holder
         else{
-        compare(ttl,sum); 
+        compare(ttl,sum,name); 
     } 
     //Add Total for 3 cards
     for(int c = 0; c < 3; c++){
         ttl+=user[c].value;
     }
     //Show User His Cards.
-    cout<<"YOUR HAND"<<endl;
+    cout<<name<<"'s Hand"<<endl;
     cout<<"***********************"<<endl;
-    cout<<"Your Card #1:"<<user[0].value<<user[0].suit<<endl;
-    cout<<"Your Card #2:"<<user[1].value<<user[1].suit<<endl;
-    cout<<"Your Card #3:"<<user[2].value<<user[2].suit<<endl;
+    cout<<"Card #1:"<<user[0].value<<user[0].suit<<endl;
+    cout<<"Card #2:"<<user[1].value<<user[1].suit<<endl;
+    cout<<"Card #3:"<<user[2].value<<user[2].suit<<endl;
     //Display total
-    cout<<"Card Total:"<<ttl<<endl;    
+    cout<<"Card Total:"<<ttl<<endl;
+    cout<<endl;    
     }
     //Check if user got 21
     check21(ttl);
-    bust(ttl);
+    bust(ttl,sum,name);
     //Ask for a fourth card.
     if(ttl < 21){
         cout<<"Hit or Stand? H/S"<<endl;
@@ -294,25 +300,26 @@ void game(){
         }
         //Stand Option - Place Holder
         else{
-        compare(ttl,sum);     
+        compare(ttl,sum,name);     
     }  
     //Add Total for 4 cards
     for(int c = 0; c < 5; c++){
         ttl+=user[c].value;
     }
     //Show User His Cards.
-    cout<<"YOUR HAND"<<endl;
+    cout<<name<<"'s Hand"<<endl;
     cout<<"***********************"<<endl;
-    cout<<"Your Card #1:"<<user[0].value<<user[0].suit<<endl;
-    cout<<"Your Card #2:"<<user[1].value<<user[1].suit<<endl;
-    cout<<"Your Card #3:"<<user[2].value<<user[2].suit<<endl;
-    cout<<"Your Card #4:"<<user[3].value<<user[3].suit<<endl;
+    cout<<"Card #1:"<<user[0].value<<user[0].suit<<endl;
+    cout<<"Card #2:"<<user[1].value<<user[1].suit<<endl;
+    cout<<"Card #3:"<<user[2].value<<user[2].suit<<endl;
+    cout<<"Card #4:"<<user[3].value<<user[3].suit<<endl;
     //Display total
-    cout<<"Card Total:"<<ttl<<endl;    
+    cout<<"Card Total:"<<ttl<<endl;
+    cout<<endl;     
     }
     //Check if user got 21
     check21(ttl);
-    bust(ttl);
+    bust(ttl,sum,name);
     //Ask for a fifth card.
     if(ttl < 21){
         cout<<"Hit or Stand? H/S"<<endl;
@@ -323,26 +330,27 @@ void game(){
             ttl = 0;
         }
         else{
-        compare(ttl,sum);     
+        compare(ttl,sum,name);     
         } 
     //Add Total for 5 cards
     for(int c = 0; c < 6; c++){
         ttl+=user[c].value;
     }
     //Show User His Cards.
-    cout<<"YOUR HAND"<<endl;
+    cout<<name<<"'s Hand"<<endl;
     cout<<"***********************"<<endl;
-    cout<<"Your Card #1:"<<user[0].value<<user[0].suit<<endl;
-    cout<<"Your Card #2:"<<user[1].value<<user[1].suit<<endl;
-    cout<<"Your Card #3:"<<user[2].value<<user[2].suit<<endl;
-    cout<<"Your Card #4:"<<user[3].value<<user[3].suit<<endl;
-    cout<<"Your Card #5:"<<user[4].value<<user[4].suit<<endl;
+    cout<<"Card #1:"<<user[0].value<<user[0].suit<<endl;
+    cout<<"Card #2:"<<user[1].value<<user[1].suit<<endl;
+    cout<<"Card #3:"<<user[2].value<<user[2].suit<<endl;
+    cout<<"Card #4:"<<user[3].value<<user[3].suit<<endl;
+    cout<<"Card #5:"<<user[4].value<<user[4].suit<<endl;
     //Display total
-    cout<<"Card Total:"<<ttl<<endl;    
+    cout<<"Card Total:"<<ttl<<endl;
+    cout<<endl; 
     }
     //Check if user got 21
     check21(ttl);
-    bust(ttl);
+    bust(ttl,sum,name);
 }
 //Functions for game
 void tnks(){
@@ -359,40 +367,42 @@ void tnks(){
    
 }
 
-void compare(int ttl, int sum){
+void compare(int ttl, int sum, string name){
     if(sum > 21){
         cout<<"You have won! The dealer went bust!"<<endl;
         cout<<"Dealer's Total:"<<sum<<endl;
-        cout<<"Your Total:"<<ttl<<endl;
+        cout<<name<<"'s Total:"<<ttl<<endl;
         tnks();
         exit(0);
     }
     if(sum > ttl){
         cout<<"You have Lost! The dealer hit higher then you!"<<endl;
         cout<<"Dealer's Total:"<<sum<<endl;
-        cout<<"Your Total:"<<ttl<<endl;
+        cout<<name<<"'s Total:"<<ttl<<endl;
         tnks();
         exit(0);
     }
     if(ttl > sum){
         cout<<"You have won! You hit higher than the dealer!"<<endl;
         cout<<"Dealer's Total:"<<sum<<endl;
-        cout<<"Your Total:"<<ttl<<endl;
+        cout<<name<<"'s Total:"<<ttl<<endl;
         tnks();
         exit(0);
     }
     if(ttl = sum){
         cout<<"Game is a tie/push"<<endl;
         cout<<"Dealer's Total:"<<sum<<endl;
-        cout<<"Your Total:"<<ttl<<endl;
+        cout<<name<<"'s Total:"<<ttl<<endl;
         tnks();
         exit(0);
     }
 }
 
-void bust(int ttl){
+void bust(int ttl,int sum,string name){
     if(ttl > 21){
         cout<<"You have just gone bust! try again next time."<<endl;
+        cout<<name<<"'s Total:"<<ttl<<endl;
+        cout<<"Dealer's Total:"<<sum<<endl;
         exit(0);
     }
 }

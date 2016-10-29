@@ -11,7 +11,6 @@
 struct player{
     unsigned int value = 0;
     string suit;
-    string name;
 };
 
 struct dealer{
