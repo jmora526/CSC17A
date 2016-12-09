@@ -23,6 +23,8 @@ void Menu();
 int getN();
 void def(int);
 void game();
+void read(fstream &);
+void rules();
 void checkBlack(int);
 void bust(int,int,string);
 void compare(int,int,string);
@@ -34,7 +36,7 @@ int main(int argc, char** argv) {
         Menu();
         num=getN();
         switch(num){
-        case 1:    "Rules";break;
+        case 1:    rules();break;
         case 2:    game();break;
         default:   def(num);}
     }while(num>=1&&num<=2);
@@ -54,6 +56,32 @@ int getN(){
 }
 void def(int inN){
         cout<<"You typed "<<inN<<" to exit the program"<<endl;
+}
+void read (fstream &file){
+    string line;
+    int c = 0;
+    while(file >> line && c <= 15){
+        c++;
+        getline(file,line);
+        cout<<line<<endl;
+    }
+    cout<<endl;
+}
+void rules(){
+    cout<<"(1.)RULES"<<endl<<endl;
+    //Declare Variables
+        string txtName; 
+        fstream file;
+    //Open File
+        file.open("rules.txt", ios::in);
+    //Check if file exists
+        if(file.fail()){
+            cout<<"Error, File not Found!"<<endl;    
+        }
+        else{
+            read(file);
+        }    
+        file.close();
 }
 void game(){
     //Set the random number seed for variability
