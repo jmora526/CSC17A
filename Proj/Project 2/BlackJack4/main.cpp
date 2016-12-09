@@ -1,8 +1,8 @@
 /* 
  * File: 
  * Author: Jose Morales
- * Purpose:
- * Created on October 24, 2016, 12:30 PM
+ *
+ * Due on December 9, 2016, 1:30 PM
  */
 
 //System Libraries
@@ -11,17 +11,20 @@
 #include <ctime>
 #include <cstdlib>
 #include <fstream>
+#include <iomanip>
 using namespace std;
 
 //User Libraries
 #include "StructInfo.h"
-#include "Card.h"
+#include "Inherete.h"
+#include "Temp.h"
 //Global Constants
 
 //Function Prototypes
 void Menu();
 int getN();
 void def(int);
+bool repeat();
 void game();
 void read(fstream &);
 void rules();
@@ -42,21 +45,38 @@ int main(int argc, char** argv) {
     }while(num>=1&&num<=2);
     return 0;
 }
-void Menu(){
-    cout<<"Welcome to BlackJack"<<endl;
-    cout<<"Type 1 getting the rules"<<endl;
-    cout<<"Type 2 to play blackjack"<<endl;  
-    cout<<"Type anything else to exit \n"<<endl;
+
+bool repeat(){
+    char again;
+    cout<<"Would you like to play again?"<<endl;
+    if(again == 'y' || 'Y'){
+        return true;
+    }
+    else{
+        return false;
+    }
 }
+
+void Menu(){
+    cout<<"*******************************"<<endl;
+    cout<<"*     Welcome to BlackJack    *"<<endl;
+    cout<<"*   Type 1 getting the rules  *"<<endl;
+    cout<<"*   Type 2 to play blackjack  *"<<endl;  
+    cout<<"*   Type () anything to exit  *"<<endl;
+    cout<<"*******************************"<<endl;
+}
+
 int getN(){
         int num;
         cin>>num;
         cin.ignore();
         return num;
 }
+
 void def(int inN){
         cout<<"You typed "<<inN<<" to exit the program"<<endl;
 }
+
 void read (fstream &file){
     string line;
     int c = 0;
@@ -67,6 +87,7 @@ void read (fstream &file){
     }
     cout<<endl;
 }
+
 void rules(){
     cout<<"(1.)RULES"<<endl<<endl;
     //Declare Variables
@@ -80,9 +101,10 @@ void rules(){
         }
         else{
             read(file);
-        }    
+        }     
         file.close();
 }
+
 void game(){
     //Set the random number seed for variability
     srand(static_cast<unsigned int>(time(0)));     
@@ -91,17 +113,18 @@ void game(){
     dealer comp[4];
     //Introduce Class
     Card card;
-    char sut;
-    int val;
+    
     //Introduce Variables
     char choice = ' ';
     int total = 0;
     char SoH = ' ';
     string name = " ";
     int sum = 0;
+    
     //Input User Name.
     cout<<"Enter your name:";
     getline(cin,name);
+    
     //Computer Blackjack
     comp[0].value = card.value();
     comp[0].sut = card.suit();
@@ -132,6 +155,7 @@ void game(){
     //cout<<"Dealer Card Total:"<<sum<<endl;
     //cout<<endl;
     //Check if computer needs a third card.
+    
     if(sum <= 17){
         sum = 0;
         comp[2].value = card.value();
@@ -152,13 +176,12 @@ void game(){
     //cout<<"Dealer Card 3:"<<comp[2].value<<comp[2].sut<<endl;
     //sum=0;
     //Check Computer total for 1 & 2 & 3.
+    
      for(int c = 0; c < 3; c++){
         sum+=comp[c].value;
     }
     //cout<<"Dealer Card Total:"<<sum<<endl;
 
-    
-    
     //Check if computer needs a fourth card.
     if(sum <= 17){
         sum = 0;
@@ -179,6 +202,7 @@ void game(){
     //cout<<"Dealer Card 2:"<<comp[1].value<<comp[1].sut<<endl;
     //cout<<"Dealer Card 3:"<<comp[2].value<<comp[2].sut<<endl;
     //cout<<"Dealer Card 4:"<<comp[3].value<<comp[3].sut<<endl;
+    
     sum = 0;
     //Check Computer total for 1 & 2 & 3 & 4.
      for(int c = 0; c < 4; c++){
@@ -186,14 +210,17 @@ void game(){
     }
     //cout<<"Card Total:"<<sum<<endl;
     cout<<endl;
+    
     //Introduce values & store 1st & 2nd card.
     user[0].value = card.value();
     user[0].sut = card.suit();
     user[1].value = card.value();
     user[1].sut = card.suit();
+    
     //Show User His Cards.
     cout<<name<<"'s Hand"<<endl;
     cout<<"***********************"<<endl;
+    
     //Display 1st & 2nd card to player.
     cout<<"Card 1:";
     cout<<user[0].value;
@@ -201,6 +228,7 @@ void game(){
     cout<<"Card 2:";
     cout<<user[1].value;
     cout<<user[1].sut<<endl;
+    
     //Check if player got an ace on first card.
     if(user[0].value == 1){
         cout<<"You just got an ace, count as 1 or 11? (O/E)"<<endl;
@@ -212,6 +240,7 @@ void game(){
             user[0].value = 11;
         }
     }
+    
     //Check if player got an ace on second card.
     if(user[1].value == 1){
         cout<<"You just got an ace, count as 1 or 11? (O/E)"<<endl;
@@ -223,16 +252,19 @@ void game(){
             user[1].value = 11;
         }
     }
+    
     //Add Total for 2 cards.
     for(int c = 0; c < 2; c++){
         total+=user[c].value;
     }
+    
     //Show card total for 2 cards.
     cout<<"Card Total:"<<total<<endl; 
     
     //Check if user got 21
     checkBlack(total);
-    bust(total,sum,name);    
+    bust(total,sum,name); 
+    
     //Ask for a third card.
     if(total < 21){
         cout<<"Hit or Stand? H/S"<<endl;
@@ -266,6 +298,7 @@ void game(){
     cout<<"Card #1:"<<user[0].value<<user[0].sut<<endl;
     cout<<"Card #2:"<<user[1].value<<user[1].sut<<endl;
     cout<<"Card #3:"<<user[2].value<<user[2].sut<<endl;
+    
     //Display total
     cout<<"Card Total:"<<total<<endl;
     cout<<endl;    
@@ -273,6 +306,7 @@ void game(){
     //Check if user got 21
     checkBlack(total);
     bust(total,sum,name);
+    
     //Ask for a fourth card.
     if(total < 21){
         cout<<"Hit or Stand? H/S"<<endl;
@@ -307,6 +341,7 @@ void game(){
     cout<<"Card #2:"<<user[1].value<<user[1].sut<<endl;
     cout<<"Card #3:"<<user[2].value<<user[2].sut<<endl;
     cout<<"Card #4:"<<user[3].value<<user[3].sut<<endl;
+    
     //Display total
     cout<<"Card Total:"<<total<<endl;
     cout<<endl;     
@@ -314,6 +349,7 @@ void game(){
     //Check if user got 21
     checkBlack(total);
     bust(total,sum,name);
+    
     //Ask for a fifth card.
     if(total < 21){
         cout<<"Hit or Stand? H/S"<<endl;
@@ -338,6 +374,7 @@ void game(){
     cout<<"Card #3:"<<user[2].value<<user[2].sut<<endl;
     cout<<"Card #4:"<<user[3].value<<user[3].sut<<endl;
     cout<<"Card #5:"<<user[4].value<<user[4].sut<<endl;
+    
     //Display total
     cout<<"Card Total:"<<total<<endl;
     cout<<endl; 
@@ -345,7 +382,14 @@ void game(){
     //Check if user got 21
     checkBlack(total);
     bust(total,sum,name);
+    
+      //Binary from file and out
+    fstream x;
+    x.open("binary.dat",ios::out | ios::binary);
+    x.write(reinterpret_cast<char *>(user),sizeof(user));
+    x.close();
 }
+
 void checkBlack(int total){
     if(total == 21){
         cout<<endl;
@@ -357,10 +401,17 @@ void checkBlack(int total){
         cout<<"  / /_____  _| |_  |_| "<<endl;
         cout<<"  |_______||_____| (_) "<<endl;
         cout<<"                       "<<endl;
+        try{
+            throw 21;
+        }
+        catch(int one){
+            cout<<one<<endl;
+        }
         exit(0);
 
     }
 }
+
 void bust(int total,int sum,string name){
     if(total > 21){
         cout<<"You have just gone bust! try again next time."<<endl;
@@ -369,6 +420,7 @@ void bust(int total,int sum,string name){
         exit(0);
     }
 }
+
 void compare(int total, int sum, string name){
     if(sum > 21){
         cout<<"You have won! The dealer went bust!"<<endl;
@@ -399,6 +451,7 @@ void compare(int total, int sum, string name){
         exit(0);
     }
 }
+
 void tnks(){
     fstream tnks;
     string line;

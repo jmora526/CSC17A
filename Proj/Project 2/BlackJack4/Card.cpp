@@ -14,19 +14,29 @@ Card::Card(){
     sut = ' ';
 }
 
-int Card::value(){   
+Card::value(){   
     val = rand()%13+1;
     switch(val){
-        case 1 : return val; break;
-        case 2 : return val; break;
-        case 3 : return val; break;
-        case 4 : return val; break;
-        case 5 : return val; break;
-        case 6 : return val; break;
-        case 7 : return val; break;
-        case 8 : return val; break;
-        case 9 : return val; break;
-        case 10 : return val; break;
+        case 1 : return val; 
+        break;
+        case 2 : return val; 
+        break;
+        case 3 : return val; 
+        break;
+        case 4 : return val; 
+        break;
+        case 5 : return val; 
+        break;
+        case 6 : return val; 
+        break;
+        case 7 : return val; 
+        break;
+        case 8 : return val; 
+        break;
+        case 9 : return val; 
+        break;
+        case 10 : return val; 
+        break;
         case 11 :
             if(val == 11){
                 val = 10;
@@ -51,9 +61,13 @@ char Card::suit(){
     int a = rand()%4+1;
     char y;
     switch(a){
-        case 1 : y = 'D'; return y; break;
-        case 2 : y = 'S'; return y; break;
-        case 3 : y = 'C'; return y; break;
-        case 4 : y = 'H'; return y; break;
+        case 1 : y = 'D'; return y; 
+        break;
+        case 2 : y = 'S'; return y; 
+        break;
+        case 3 : y = 'C'; return y; 
+        break;
+        case 4 : y = 'H'; return y; 
+        break;
     }
 }
