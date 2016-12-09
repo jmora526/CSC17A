@@ -37,8 +37,8 @@ char Card::name(){
     return arrName[num%13];
 }
 
-char Card::value(){
-    char n=num%13+1;
+int Card::value(){
+    int n=num%13+1;
     if(n>10){
         return 10;
     }

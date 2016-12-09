@@ -15,7 +15,7 @@ class Card{
        Card(int);
        char suit();
        char name();
-       char value();
+       int value();
        char getNum(){return num;}
 };
 
